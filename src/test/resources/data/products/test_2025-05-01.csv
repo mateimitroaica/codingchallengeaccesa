@@ -1,0 +1,3 @@
+product_id;product_name;product_category;brand;package_quantity;package_unit;price;currency
+P100;test milk;lactate;TestBrand;1;l;5.50;RON
+P101;test butter;lactate;TestBrand;0.25;kg;7.20;RON
