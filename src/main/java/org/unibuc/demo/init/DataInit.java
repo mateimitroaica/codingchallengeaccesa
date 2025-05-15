@@ -25,7 +25,7 @@ public class DataInit {
             importService.importProducts("profi_2025-05-01.csv");
             importService.importProducts("profi_2025-05-08.csv");
         } catch (IOException e) {
-            System.err.println("⚠️ Import failed: " + e.getMessage());
+            System.err.println(" Import failed: " + e.getMessage());
         }
 
     }
