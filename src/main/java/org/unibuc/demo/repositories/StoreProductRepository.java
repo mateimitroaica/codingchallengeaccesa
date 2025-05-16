@@ -14,4 +14,6 @@ public interface StoreProductRepository extends JpaRepository<StoreProduct, Long
     Boolean existsByProductAndStoreAndDateAndPrice(Product product, String store, LocalDate date, double price);
     List<StoreProduct> findByProduct_ProductNameAndDate(String productName, LocalDate date);
     Optional<StoreProduct> findByProductAndStoreAndDate(Product product, String store, LocalDate date);
+    List<StoreProduct> findByProduct_ProductNameContainingIgnoreCase(String productName);
+    List<StoreProduct> findByProduct_ProductNameContainingIgnoreCaseAndDate(String productName, LocalDate date);
 }
