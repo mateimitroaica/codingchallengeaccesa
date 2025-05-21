@@ -18,26 +18,30 @@ public class DataInit {
     @PostConstruct
     public void init() {
         try {
-            // products import:
-            importService.importProducts("kaufland_2025-05-01.csv");
-            importService.importProducts("kaufland_2025-05-08.csv");
-            importService.importProducts("lidl_2025-05-01.csv");
-            importService.importProducts("lidl_2025-05-08.csv");
-            importService.importProducts("profi_2025-05-01.csv");
-            importService.importProducts("profi_2025-05-08.csv");
+            if (importService.isDatabaseEmpty()) {
+                // products import:
+                importService.importProducts("kaufland_2025-05-01.csv");
+                importService.importProducts("kaufland_2025-05-08.csv");
+                importService.importProducts("lidl_2025-05-01.csv");
+                importService.importProducts("lidl_2025-05-08.csv");
+                importService.importProducts("profi_2025-05-01.csv");
+                importService.importProducts("profi_2025-05-08.csv");
 
-            // discounts import:
-            importService.importDiscounts("kaufland_discounts_2025-05-01.csv");
-            importService.importDiscounts("kaufland_discounts_2025-05-08.csv");
-            importService.importDiscounts("lidl_discounts_2025-05-01.csv");
-            importService.importDiscounts("lidl_discounts_2025-05-08.csv");
-            importService.importDiscounts("profi_discounts_2025-05-01.csv");
-            importService.importDiscounts("profi_discounts_2025-05-08.csv");
+                // discounts import:
+                importService.importDiscounts("kaufland_discounts_2025-05-01.csv");
+                importService.importDiscounts("kaufland_discounts_2025-05-08.csv");
+                importService.importDiscounts("lidl_discounts_2025-05-01.csv");
+                importService.importDiscounts("lidl_discounts_2025-05-08.csv");
+                importService.importDiscounts("profi_discounts_2025-05-01.csv");
+                importService.importDiscounts("profi_discounts_2025-05-08.csv");
+
+            } else {
+                System.out.println("Database populated.");
+            }
 
         } catch (IOException e) {
             System.err.println(" Import failed: " + e.getMessage());
         }
-
     }
 
 }

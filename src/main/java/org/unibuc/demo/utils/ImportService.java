@@ -175,5 +175,9 @@ public class ImportService {
         }
     }
 
+    public boolean isDatabaseEmpty() {
+        return productRepository.count() == 0 && discountProductRepository.count() == 0;
+    }
+
 
 }
